@@ -1,0 +1,81 @@
+:root {
+  /* background colors */
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --carousel-btn-bg: #f3f4f6;
+  --header-bg: #0f172a;
+  --searchbar-bg: #ffffff07;
+
+  /* Text */
+  --text: #7e7e7e;
+  --text-black: #000000;
+  --text-white: #ffffff;
+  --text-h: #6b7280;
+  --searchbar-text: #9ca3af;
+  --active: #2563eb;  
+  --color-green-500: #00c51e;
+
+  --svg: #1c274c;
+
+  --border: #e5e7eb;
+  --searchbar-border: #ffffff20;
+
+  /* Typography */
+  --font-primary: "Domine", serif;
+  --font-secondary: "Inter", sans-serif;
+
+  --line-height-default: normal;
+
+  font-size: 18px/140% var(--font-secondary);
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+    max-width: 100%;
+    text-align: center;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+h1,h2 {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    margin: 0;
+}
+
+h1 {
+    font-size: 32px;
+    letter-spacing: 6%;
+    color: var(--text-white);
+    @media (max-width: 1024px) {
+        font-size: 28px;
+    }
+}
+
+h2 {
+    font-size: 24px;
+    letter-spacing: 2%;
+    color: var(--text-h);
+    @media (max-width: 1024px) {
+        font-size: 20px;
+    }
+}
+
+p {
+  margin: 0;
+}
