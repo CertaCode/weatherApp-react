@@ -1,5 +1,5 @@
 import searchbar from "../../assets/searchBar-icon.svg";
-import "../../styles/components/sections/header.css";
+import "../../styles/components/sections/Header.css";
 
 export default function Header() {
   return (
