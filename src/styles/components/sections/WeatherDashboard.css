@@ -1,0 +1,9 @@
+main {
+    display: flex;
+    width: var(--content__width);
+    min-height: 100svh;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+}
