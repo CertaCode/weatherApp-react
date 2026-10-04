@@ -24,7 +24,8 @@
   --font-primary: "Domine", serif;
   --font-secondary: "Inter", sans-serif;
 
-  --line-height-default: normal;
+  /* Width */
+  --content__width: min(100%, 640px);
 
   font-size: 18px/140% var(--font-secondary);
   color: var(--text);

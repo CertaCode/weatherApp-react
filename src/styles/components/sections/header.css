@@ -1,5 +1,9 @@
 .app-header, .app-header__inner {
-    min-height: 60px;
+  --header__hight: 60px;
+  --header-form__width: min(100%, 300px);
+  --header-form__hight: 30px;
+
+    min-height: var(--header__hight);
 }
 
 .app-header {
@@ -12,7 +16,7 @@
 .app-header__inner {
     display: flex;
     margin: 0 auto;
-    width: min(100%, 640px);
+    width: var(--content__width);
     flex-direction: row;
     justify-content: space-between;
 
@@ -24,7 +28,7 @@
 }
 
 .app-header__group, .app-header__form {
-    width: min(100%, 300px);
+    width: var(--header-form__width);
 }
 
 .app-header__form, .app-header__input {
@@ -33,8 +37,7 @@
 
 .app-header__form {
     justify-content: center;
-    width: min(100%, 300px);
-    min-height: 30px;
+    min-height: var(--header-form__hight);
 
     padding: 0;
 
@@ -49,7 +52,7 @@
     padding: 0;
     justify-content: center;
 
-    min-height: 30px;
+    min-height: var(--header-form__min-hight);
 
     img {
         width: 20px;

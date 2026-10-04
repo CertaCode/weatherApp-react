@@ -1,5 +1,7 @@
 import cloudy from "../../assets/weather-icons/cloudy.svg";
 import humidityIcon from "../../assets/humidity.svg";
+import PropTypes from "prop-types";
+
 const Carousel = ({ children }) => {
   return (
     <div className="carousel">
