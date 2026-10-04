@@ -1,7 +1,7 @@
 export default function CurrentWeatherInformation() {
   return (
-    <div className="currentWeather-information">
-      <div className="information-list">
+    <div className="current-weather__information">
+      <div className="current-weather__information-list">
         <ul>
           <li>
             <p>Wind</p>

@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import Card from "../ui/Card";
 import CurrentWeatherTemperature from "../ui/CurrentWeatherTemperature";
 import CurrentWeatherInformation from "../ui/CurrentWeatherInformation";
+import "../../styles/components/sections/CurrentWeather.css";
 
 export default function CurrentWeather() {
   const currentTime = new Date().toLocaleString([], {
@@ -10,7 +11,10 @@ export default function CurrentWeather() {
   });
 
   return (
-    <Card title="CURRENT WEATHER" date={currentTime} id="currentWeather">
+    <Card
+      title="CURRENT WEATHER"
+      date={currentTime}
+      className="current-weather">
       <Fragment>
         <CurrentWeatherTemperature />
         <CurrentWeatherInformation />
