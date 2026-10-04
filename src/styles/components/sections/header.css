@@ -1,0 +1,73 @@
+.app-header, .app-header__inner {
+    min-height: 60px;
+}
+
+.app-header {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: var(--header-bg);
+}
+
+.app-header__inner {
+    display: flex;
+    margin: 0 auto;
+    width: min(100%, 640px);
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.app-header__title, .app-header__group, .app-header__form, .searchbar-icon {
+    display: flex;
+    align-items: center;
+}
+
+.app-header__group, .app-header__form {
+    width: min(100%, 300px);
+}
+
+.app-header__form, .app-header__input {
+    box-sizing: border-box;
+}
+
+.app-header__form {
+    justify-content: center;
+    width: min(100%, 300px);
+    min-height: 30px;
+
+    padding: 0;
+
+    border-radius: 10px;
+    border: 1px solid var(--searchbar-border);
+    background: var(--searchbar-bg);
+    color: var(--searchbar-text);
+}
+
+.searchbar-icon {
+    flex: 1 1 0;
+    padding: 0;
+    justify-content: center;
+
+    min-height: 30px;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.app-header__input {
+    flex: 6 1 0;
+    height: 100%;
+
+    background: transparent;
+    border: 0;
+
+    color: var(--text-white);
+
+    &:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+    }
+}

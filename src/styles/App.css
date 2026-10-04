@@ -1,66 +1,4 @@
-header {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 60px;
-    background: var(--header-bg);
 
-    section {
-        display: flex;
-        margin: 0 auto;
-        max-width: 50%;
-        height: 60px;
-        flex-direction: row;
-        justify-content: space-between;
-
-        &>div {
-            display: flex;
-            align-items: center;
-        }
-
-        form {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 300px;
-            height: 30px;
-
-            padding: 0;
-
-            border-radius: 10px;
-            border: 1px solid var(--searchbar-border);
-            background: var(--searchbar-bg);
-            color: var(--searchbar-text);
-
-            .searchbar-icon {
-                display: flex;
-                flex: 1 1 0;
-                padding: 0;
-                align-items: center;
-                justify-content: center;
-
-                height: 100%;
-                img {
-                    width: 20px;
-                    height: 20px;
-                }
-            }
-
-            input {
-                flex: 6 1 0;
-                height: 100%;
-                
-                background: #ffffff00;
-                border: 0;
-
-                color: var(--text-white);
-                &:focus {
-                    outline: none;
-                }
-            }
-        }
-    }
-}
 
 nav {
     margin: 0 auto 10px auto;
@@ -204,8 +142,8 @@ main {
                 font-weight: bold;
             }
 
-            a {
-                outline: none;
+            a:focus-visible {
+                outline: 2px solid var(--active);
             }
         }
 
