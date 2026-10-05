@@ -19,8 +19,8 @@ export default function Card({
   return (
     <section className={`card ${className ? className : ""}`}>
       <div className="card__title">
-        {title && <p>{title}</p>}
-        {date && <p>{date}</p>}
+        {title && <h2>{title}</h2>}
+        {date && <h2>{date}</h2>}
         {CardTitleComponent && <CardTitleComponent />}
       </div>
       <div className="card__content">{children}</div>
