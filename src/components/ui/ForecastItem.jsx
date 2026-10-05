@@ -21,23 +21,32 @@ function ForecastItem({ data }) {
   return (
     <div className="forecast__item">
       <div className="forecast__left-group">
-        <div className="forecast__date">
+        <div className="forecast__date-group">
+          <p className="forecast__day">{data.day}</p>
           <p>{data.date}</p>
-          <p>{data.day}</p>
         </div>
         <div className="forecast__temperature">
-          <img src={weatherIcon} />
-          <p>{data.hiTemp}</p>
-          <p>{data.loTemp}</p>
+          <div className="forecast__icon">
+            <img src={weatherIcon} />
+          </div>
+          <div className="forecast__degrees">
+            <p className="forecast__hi">{data.hiTemp}</p>
+            <p className="forecast__lo">{data.loTemp}</p>
+          </div>
         </div>
       </div>
       <div className="forecast__right-group">
         <div className="forecast__details">
           <p>{data.dayWeather}</p>
-          <p>{data.nightWeather}</p>
+          <div className="forecast__night">
+            <img src={cloudyNightIcon} alt="night clouds" />
+            <p>{data.nightWeather}</p>
+          </div>
         </div>
         <div className="forecast__humidity">
-          <img src={humidityIcon} />
+          <div className="forecast__humidity-icon">
+            <img src={humidityIcon} />
+          </div>
           <p>{data.humidity}</p>
         </div>
       </div>

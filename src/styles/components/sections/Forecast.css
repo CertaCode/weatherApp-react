@@ -1,0 +1,100 @@
+.forecast-weather {
+    --item-height: 50px;
+    --item-content-height: 40px;
+}
+
+.forecast-weather .card__content {
+    padding: 0;
+}
+
+.forecast__item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: var(--item-height);
+    padding: 5px 14px;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--border);
+    gap: 20px;
+}
+
+.forecast__left-group {
+    display: flex;
+    justify-content: space-between;
+    width: min(40%,200px);
+    min-height: var(--item-content-height);
+}
+
+.forecast__date-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.forecast__day {
+    color: var(--text-black);
+    font-size: 20px;
+}
+
+.forecast__temperature {
+    display: flex;
+    align-items: center;
+    width: 120px;
+    gap: 10px;
+}
+
+.forecast__degrees {
+    display: flex;
+    align-items: flex-end;
+}
+
+.forecast__hi {
+    font-size: 1.8rem;
+    color: var(--text-black);
+    font-weight: 600;
+}
+
+.forecast__lo {
+    font-size: 1.2rem;
+}
+
+.forecast__icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+
+.forecast__right-group {
+    display: flex;
+    justify-content: space-between;
+    width: min(60%,400px);
+    min-height: var(--item-content-height);
+}
+
+.forecast__details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.forecast__night {
+    display: flex;
+}
+
+.forecast__night img{
+    width: 20px;
+    height: 20px;
+}
+
+.forecast__humidity {
+    display: flex;
+    align-items: center;
+}
+
+.forecast__humidity-icon{
+    width: 20px;
+    height: 20px;
+}

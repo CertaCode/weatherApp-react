@@ -1,13 +1,14 @@
 import Card from "../ui/Card";
 import ForecastItem from "../ui/ForecastItem";
+import "../../styles/components/sections/Forecast.css";
 
 const data = [
   {
     id: 1,
     date: "30/09",
     day: "WED",
-    hiTemp: "21C",
-    loTemp: "14C",
+    hiTemp: "21°",
+    loTemp: "14°",
     dayWeather: "Cloudy",
     nightWeather: "Rain Cloudy",
     humidity: "10%",
@@ -16,8 +17,8 @@ const data = [
     id: 2,
     date: "1/10",
     day: "THU",
-    hiTemp: "22C",
-    loTemp: "15C",
+    hiTemp: "22°",
+    loTemp: "15°",
     dayWeather: "Clear sky",
     nightWeather: "Storm",
     humidity: "12%",
@@ -26,8 +27,8 @@ const data = [
     id: 3,
     date: "2/10",
     day: "FRI",
-    hiTemp: "16C",
-    loTemp: "9C",
+    hiTemp: "16°",
+    loTemp: "9°",
     dayWeather: "Thunder Storm",
     nightWeather: "Cloudy",
     humidity: "16%",
