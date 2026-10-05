@@ -3,6 +3,7 @@ import ForecastItem from "../ui/ForecastItem";
 
 const data = [
   {
+    id: 1,
     date: "30/09",
     day: "WED",
     hiTemp: "21C",
@@ -12,6 +13,7 @@ const data = [
     humidity: "10%",
   },
   {
+    id: 2,
     date: "1/10",
     day: "THU",
     hiTemp: "22C",
@@ -21,6 +23,7 @@ const data = [
     humidity: "12%",
   },
   {
+    id: 3,
     date: "2/10",
     day: "FRI",
     hiTemp: "16C",
@@ -35,7 +38,7 @@ function Forecast() {
   return (
     <Card title="7-DAYS WEATHER FORECAST" id="forecast">
       {data.map((data) => (
-        <ForecastItem data={data} />
+        <ForecastItem data={data} key={data.id} />
       ))}
     </Card>
   );
