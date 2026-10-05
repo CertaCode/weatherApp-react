@@ -36,7 +36,7 @@ const data = [
 
 function Forecast() {
   return (
-    <Card title="7-DAYS WEATHER FORECAST" id="forecast">
+    <Card title="7-DAYS WEATHER FORECAST" className="forecast-weather">
       {data.map((data) => (
         <ForecastItem data={data} key={data.id} />
       ))}
