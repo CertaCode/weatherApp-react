@@ -1,0 +1,128 @@
+.hourly-weather {
+    --carousel-height: 150px;
+    --hourly-item-width: 72px;
+    --button-size: 42px;
+    --hourly-gap: 8px;
+}
+
+.hourly-weather .card__content {
+    padding: 0;
+}
+
+.carousel {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    min-height: var(--carousel-height);
+    overflow: hidden;
+    background: var(--card-bg);
+}
+
+.carousel__btn {
+    flex: 0 0 var(--button-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-top: 0;
+    border-bottom: 0;
+    background-color: var(--carousel-btn-bg);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.carousel__btn:hover {
+    background-color: #e5e7eb;
+}
+
+.carousel__btn:focus-visible {
+    outline: 2px solid var(--active);
+    outline-offset: -2px;
+}
+
+.carousel__btn img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.carousel__left-btn {
+    border-left: 0;
+}
+
+.carousel__right-btn {
+    border-right: 0;
+}
+
+.carousel__items {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.carousel__list {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    gap: var(--hourly-gap);
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel__item {
+    display: flex;
+    flex: 0 0 var(--hourly-item-width);
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+    text-align: center;
+}
+
+.carousel__time {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.carousel__temperature {
+    font-size: 1.35rem;
+    line-height: 1;
+    color: var(--text-black);
+    font-weight: 700;
+}
+
+.carousel__humidity-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: var(--text-h);
+}
+
+.carousel__humidity {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+.carousel__humidity-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.carousel__humidity-p {
+    margin: 0;
+    line-height: 1;
+    font-size: 0.90rem;
+}
