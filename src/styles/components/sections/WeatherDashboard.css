@@ -3,6 +3,7 @@ main {
     width: var(--content__width);
     min-height: 100svh;
     margin: 0 auto;
+    padding: 10px 0;
     flex-direction: column;
     gap: 10px;
     box-sizing: border-box;
