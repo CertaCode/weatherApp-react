@@ -1,25 +1,40 @@
+import PropTypes from "prop-types";
 import "../../styles/components/layout/Navbar.css";
 
-export default function Navbar() {
+const tabs = [
+  { id: "today", label: "Today" },
+  { id: "hourly", label: "Hourly" },
+  { id: "7days", label: "7-Days" },
+];
+
+export default function Navbar({ activePage, onNavigate }) {
   return (
     <nav className="app-navbar">
       <ul className="app-navbar__list">
-        <li className="app-navbar__item app-navbar__item--active">
-          <a href="/today" className="app-navbar__a">
-            <p className="app-navbar__p">Today</p>
-          </a>
-        </li>
-        <li className="app-navbar__item">
-          <a href="/hourly" className="app-navbar__a">
-            <p className="app-navbar__p">Hourly</p>
-          </a>
-        </li>
-        <li className="app-navbar__item">
-          <a href="/7days" className="app-navbar__a">
-            <p className="app-navbar__p">7-Days</p>
-          </a>
-        </li>
+        {tabs.map((tab) => (
+          <li
+            key={tab.id}
+            className={`app-navbar__item ${
+              activePage === tab.id ? "app-navbar__item--active" : ""
+            }`}>
+            <a
+              href={`/${tab.id}`}
+              className="app-navbar__a"
+              aria-current={activePage === tab.id ? "page" : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate(tab.id);
+              }}>
+              <p className="app-navbar__p">{tab.label}</p>
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  activePage: PropTypes.string.isRequired,
+  onNavigate: PropTypes.func.isRequired,
+};
