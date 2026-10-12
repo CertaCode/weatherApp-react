@@ -45,6 +45,24 @@ const items = [
     temperature: "19C",
     humidity: "8",
   },
+  {
+    id: 8,
+    time: "14:00",
+    temperature: "19C",
+    humidity: "8",
+  },
+  {
+    id: 9,
+    time: "14:00",
+    temperature: "19C",
+    humidity: "8",
+  },
+  {
+    id: 10,
+    time: "14:00",
+    temperature: "19C",
+    humidity: "8",
+  },
 ];
 
 export default function HourlyWeather() {
@@ -52,7 +70,7 @@ export default function HourlyWeather() {
   return (
     <Card title="HOURLY WEATHER" className="hourly-weather">
       <Carousel>
-        {items.map((item, index) => (
+        {items.map((item) => (
           <Carousel.Item
             time={item.time}
             temperature={item.temperature}
