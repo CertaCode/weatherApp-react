@@ -1,6 +1,6 @@
-import Card from "../ui/Card";
-import Carousel from "../ui/Carousel";
-import "../../styles/components/sections/HourlyWeather.css";
+import Card from "../../components/ui/Card";
+import Carousel from "../../components/ui/Carousel";
+import "./HourlyWeather.css";
 
 const items = [
   {

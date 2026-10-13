@@ -7,7 +7,7 @@ import partlyCloudyIcon from "../../assets/weather-icons/partly-cloudy.svg";
 import nightIcon from "../../assets/weather-icons/night.svg";
 import cloudyNightIcon from "../../assets/weather-icons/cloudy-night.svg";
 import humidityIcon from "../../assets/humidity.svg";
-import "../../styles/components/ui/HourlyItem.css";
+import "./HourlyItem.css";
 
 const icons = {
   sunny: sunnyIcon,

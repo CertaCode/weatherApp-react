@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import "../../styles/components/layout/Navbar.css";
+import "./Navbar.css";
 
 const tabs = [
   { id: "today", label: "Today" },

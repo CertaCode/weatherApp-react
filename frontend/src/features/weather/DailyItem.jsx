@@ -4,7 +4,7 @@ import rainIcon from "../../assets/weather-icons/rain.svg";
 import cloudyIcon from "../../assets/weather-icons/cloudy.svg";
 import partlyCloudyIcon from "../../assets/weather-icons/partly-cloudy.svg";
 import humidityIcon from "../../assets/humidity.svg";
-import "../../styles/components/ui/DailyItem.css";
+import "./DailyItem.css";
 
 const icons = {
   sunny: sunnyIcon,

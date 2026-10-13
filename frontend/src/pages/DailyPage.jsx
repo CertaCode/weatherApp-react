@@ -1,5 +1,5 @@
-import DailyItem from "../ui/DailyItem";
-import "../../styles/components/sections/DailyPage.css";
+import DailyItem from "../features/weather/DailyItem";
+import "./DailyPage.css";
 
 const makeDetails = (realFeelShade, wind, humidity, airQuality = "Fair") => [
   { label: "RealFeel Shade", value: `${realFeelShade}°` },

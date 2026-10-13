@@ -1,5 +1,5 @@
-import HourlyItem from "../ui/HourlyItem";
-import "../../styles/components/sections/HourlyPage.css";
+import HourlyItem from "../features/weather/HourlyItem";
+import "./HourlyPage.css";
 
 // Placeholder data - replace with your weather API response later
 const hours = [

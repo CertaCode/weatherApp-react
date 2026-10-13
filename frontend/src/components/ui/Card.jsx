@@ -1,4 +1,4 @@
-import "../../styles/components/ui/Card.css";
+import "./Card.css";
 import PropTypes from "prop-types";
 
 Card.propTypes = {

@@ -1,8 +1,8 @@
 import { Fragment } from "react";
-import Card from "../ui/Card";
-import CurrentWeatherTemperature from "../ui/CurrentWeatherTemperature";
-import CurrentWeatherInformation from "../ui/CurrentWeatherInformation";
-import "../../styles/components/sections/CurrentWeather.css";
+import Card from "../../components/ui/Card";
+import CurrentWeatherTemperature from "./CurrentWeatherTemperature";
+import CurrentWeatherInformation from "./CurrentWeatherInformation";
+import "./CurrentWeather.css";
 
 export default function CurrentWeather() {
   const currentTime = new Date().toLocaleString([], {

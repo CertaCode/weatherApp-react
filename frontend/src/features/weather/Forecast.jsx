@@ -1,6 +1,6 @@
-import Card from "../ui/Card";
-import ForecastItem from "../ui/ForecastItem";
-import "../../styles/components/sections/Forecast.css";
+import Card from "../../components/ui/Card";
+import ForecastItem from "./ForecastItem";
+import "./Forecast.css";
 
 const data = [
   {
