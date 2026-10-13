@@ -2,14 +2,17 @@ import "dotenv/config";
 import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const app = express();
 const port = Number(process.env.PORT) || 3000;
 const API_KEY = String(process.env.API_KEY) || null;
 const API_URL = String(process.env.API_URL) || null;
+const currentDirectory = dirname(fileURLToPath(import.meta.url));
 
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(join(currentDirectory, "../frontend/public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const config = {
