@@ -1,6 +1,7 @@
 import axios from "axios";
 import { env } from "../config/env.js";
 import { AppError } from "../utils/AppError.js";
+import { getAirQuality } from "../utils/airQuality.js";
 
 export async function getCurrentWeather(city) {
   let data;
@@ -19,7 +20,8 @@ export async function getCurrentWeather(city) {
     }
     throw new AppError(502, "Weather provider is unavailable");
   }
-
+  console.log(data.current);
+  
   // Map the provider's shape to the shape YOUR frontend uses
   return {
     city: data.location.name,
@@ -29,5 +31,7 @@ export async function getCurrentWeather(city) {
     realFeel: Math.round(data.current.feelslike_c),
     humidity: data.current.humidity,
     wind: `${data.current.wind_dir} ${Math.round(data.current.wind_kph)} km/h`,
+    windGust: `${data.current.gust_kph} km/h`,
+    airQuality: getAirQuality(data.current.air_quality?.["us-epa-index"]),
   };
 }
