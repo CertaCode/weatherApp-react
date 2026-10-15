@@ -28,7 +28,11 @@ export default function CurrentWeather() {
           realFeel={data.realFeel}
           condition={data.condition}
         />
-        <CurrentWeatherInformation wind={data.wind} />
+        <CurrentWeatherInformation
+          wind={data.wind}
+          windgust={data.windGust}
+          airQuality={data.airQuality}
+        />
       </Fragment>
     </Card>
   );

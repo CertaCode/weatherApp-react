@@ -1,4 +1,5 @@
 import weatherIcon from "../../assets/weather-icons/sun.svg";
+import PropTypes from "prop-types";
 
 export default function CurrentWeatherTemperature({
   temperature,
@@ -21,3 +22,9 @@ export default function CurrentWeatherTemperature({
     </div>
   );
 }
+
+CurrentWeatherTemperature.propTypes = {
+  temperature: PropTypes.number.isRequired,
+  realFeel: PropTypes.number.isRequired,
+  condition: PropTypes.string.isRequired,
+};

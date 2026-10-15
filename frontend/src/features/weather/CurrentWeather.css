@@ -53,6 +53,13 @@
     }
 }
 
+.aq--good           { color: var(--color-green-500); }
+.aq--moderate       { color: #c9a000; }
+.aq--sensitive      { color: #ff7e00; }
+.aq--unhealthy      { color: #e00000; }
+.aq--very-unhealthy { color: #8f3f97; }
+.aq--hazardous      { color: #7e0023; }
+
 .current-weather__information {
     flex: 1;
 }
