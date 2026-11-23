@@ -20,7 +20,7 @@ export default function WeatherDashboard() {
         current={data.current}
         localTime={data.location.localTime}
       />
-      <HourlyWeather />
+      <HourlyWeather hours={data.hours} />
       <Forecast />
     </main>
   );

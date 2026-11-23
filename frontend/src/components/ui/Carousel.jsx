@@ -1,6 +1,5 @@
 import { Children, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import cloudy from "../../assets/weather-icons/cloudy.svg";
 import humidityIcon from "../../assets/humidity.svg";
 import CarouselButton from "./CarouselButton";
 
@@ -68,12 +67,12 @@ const Carousel = ({ children }) => {
   );
 };
 
-const Item = ({ time, temperature, humidity }) => {
+const Item = ({ time, icon, iconLabel, temperature, humidity }) => {
   return (
     <li className="carousel__item">
       <p className="carousel__time">{time}</p>
-      <img src={cloudy} className="carousel__icon" alt="" />
-      <p className="carousel__temperature">{temperature}</p>
+      <img src={icon} className="carousel__icon" alt={iconLabel} />
+      <p className="carousel__temperature">{temperature}°</p>
       <div className="carousel__humidity-group">
         <div className="carousel__humidity">
           <img src={humidityIcon} className="carousel__humidity-icon" alt="" />
@@ -90,8 +89,10 @@ Carousel.propTypes = {
 
 Item.propTypes = {
   time: PropTypes.string.isRequired,
-  temperature: PropTypes.string.isRequired,
-  humidity: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  iconLabel: PropTypes.string,
+  temperature: PropTypes.number.isRequired,
+  humidity: PropTypes.number.isRequired,
 };
 
 Carousel.Item = Item;
