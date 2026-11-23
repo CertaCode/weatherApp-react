@@ -28,7 +28,7 @@ npm run build     # production build to frontend/dist
 npm run preview   # serve the build
 ```
 
-There is no test framework set up in either package.
+Server only: `npm test` runs Vitest (`server/test/`). The frontend has no test framework.
 
 Known broken scripts (don't rely on them):
 - `server` `npm start` runs `node index.js`, but there is no `index.js`; the entry point is `src/server.js`.
@@ -39,7 +39,7 @@ Known broken scripts (don't rely on them):
 `server/.env` (git-ignored) is loaded via `dotenv` in `server/src/config/env.js`. The server throws on startup if a required variable is missing.
 
 - `WEATHER_API_KEY` (required)
-- `WEATHER_API_URL` (required): the full WeatherAPI endpoint URL (currently the forecast endpoint, called with `days: 1, aqi: "yes"`)
+- `WEATHER_API_URL` (required): the full WeatherAPI endpoint URL (the forecast endpoint, called with `days: 7, aqi: "yes"`; the free plan returns 3 days)
 - `PORT` (default `3000`)
 - `CLIENT_ORIGIN` (default `http://localhost:5173`, used for CORS)
 
@@ -51,20 +51,20 @@ Browser → `frontend/src/services/api.js` (axios, `baseURL: "/api"`) → Vite d
 
 On the server, a request passes through `app.js` (helmet → cors → json → rate limit of 60 req/min on `/api`) → `routes/*.routes.js` → validation middleware → `controllers/` → `services/` → WeatherAPI.
 
-- **Services** call the provider and map its response into the app's own shape. The frontend depends on this mapped shape (e.g. `{ city, temperature, realFeel, wind, windGust, airQuality }`), not on WeatherAPI's raw fields. When adding a field, change the service's return object first, then the UI.
+- **Services** call the provider and map its response into the app's own shape. The frontend depends on this mapped shape (`{ location, current, today, hours, days }`, built by the pure `mapForecast` in `services/forecast.mapper.js`), not on WeatherAPI's raw fields. When adding a field, change the mapper (and its test in `server/test/`) first, then the UI. Times and dates are sent as display labels in the city's own time (see `CONTEXT.md`), and each condition carries an icon key chosen by `utils/conditionIcon.js`.
 - **Errors**: throw `AppError(status, message)` from `utils/AppError.js`. Express 5 forwards thrown and rejected errors from async handlers automatically, so controllers have no try/catch. `middleware/errorHandler.js` returns `{ error: message }` for an `AppError` and a generic 500 for anything else. Provider 400 is mapped to 404 "City not found"; other provider failures become 502.
 - **Validation** middleware stores cleaned input on `res.locals` (e.g. `res.locals.city`) for the controller to read.
 - `notFound` and `errorHandler` must stay registered last in `app.js`.
 
-Current endpoints: `GET /health`, `GET /api/weather/current?city=...`.
+Current endpoints: `GET /health`, `GET /api/weather/forecast?city=...`.
 
 ### Frontend
 
 - **Navigation** has no router. `App.jsx` holds `page` state (`"today" | "hourly" | "7days"`) and conditionally renders a page from `pages/`. `Navbar` receives `activePage`/`onNavigate`.
 - **Structure**: `pages/` composes `features/weather/` components; `components/layout` and `components/ui` (Card, Carousel) are generic. Each component imports its own co-located `.css` file (plain CSS, no CSS modules or Tailwind).
-- **Data fetching**: the pattern is service function (`services/weatherService.js`) → custom hook (`hooks/useWeather.js`) → component. `useWeather` tracks which city the stored result belongs to, so `loading` is derived and stale results are hidden. It uses an `AbortController` on city change, and the component renders the `{ error }` message from the server.
-- **Migration in progress**: only `CurrentWeather` uses live API data (city hardcoded as `"Hamburg"`). `Forecast`, `HourlyWeather`, `TodaysWeather`, `HourlyPage` and `DailyPage` still render hardcoded arrays. Recent work follows the pattern "add server endpoint/field → wire it into the client".
-- `weatherService.getCurrentWeather` doesn't currently accept or forward the abort `signal` that `useWeather` passes, so requests aren't actually cancelled.
+- **Data fetching**: the pattern is service function (`services/weatherService.js`) → custom hook (`hooks/useForecast.js`) → page. `useForecast` tracks which city the stored result belongs to, so `loading` is derived and stale results are hidden. It aborts the request on city change (`getForecast` forwards the `signal` to axios), and the page renders the `{ error }` message from the server.
+- **Today page** (`WeatherDashboard`) makes the single `useForecast` call (city hardcoded as the `CITY` constant, `"Hamburg"`) and passes slices to the presentational cards (`TodaysWeather`, `CurrentWeather`, `HourlyWeather`, `Forecast`). Icon keys map to assets in `features/weather/weatherIcons.js`.
+- **Migration in progress**: `HourlyPage` and `DailyPage` (and `HourlyItem`/`DailyItem`) still render hardcoded arrays. The header search box isn't wired up. Recent work follows the pattern "add server endpoint/field → wire it into the client".
 - Vite defines an `@` → `frontend/src` alias, but existing code uses relative imports.
 - ESLint includes `eslint-plugin-react`, so prop-types validation applies; components use `prop-types`.
 

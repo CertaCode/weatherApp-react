@@ -1,84 +1,38 @@
+import PropTypes from "prop-types";
 import Card from "../../components/ui/Card";
 import Carousel from "../../components/ui/Carousel";
+import getWeatherIcon from "./weatherIcons";
 import "./HourlyWeather.css";
 
-const items = [
-  {
-    id: 1,
-    time: "12:00",
-    temperature: "16C",
-    humidity: "8",
-  },
-  {
-    id: 2,
-    time: "13:00",
-    temperature: "18C",
-    humidity: "8",
-  },
-  {
-    id: 3,
-    time: "14:00",
-    temperature: "19C",
-    humidity: "8",
-  },
-  {
-    id: 4,
-    time: "14:00",
-    temperature: "19C",
-    humidity: "8",
-  },
-  {
-    id: 5,
-    time: "14:00",
-    temperature: "19C",
-    humidity: "8",
-  },
-  {
-    id: 6,
-    time: "14:00",
-    temperature: "19C",
-    humidity: "8",
-  },
-  {
-    id: 7,
-    time: "14:00",
-    temperature: "19C",
-    humidity: "8",
-  },
-  {
-    id: 8,
-    time: "14:00",
-    temperature: "19C",
-    humidity: "8",
-  },
-  {
-    id: 9,
-    time: "14:00",
-    temperature: "19C",
-    humidity: "8",
-  },
-  {
-    id: 10,
-    time: "14:00",
-    temperature: "19C",
-    humidity: "8",
-  },
-];
-
-export default function HourlyWeather() {
-  // npm install uuid (might be useful for later)
+export default function HourlyWeather({ hours }) {
   return (
     <Card title="HOURLY WEATHER" className="hourly-weather">
       <Carousel>
-        {items.map((item) => (
+        {hours.map((hour) => (
           <Carousel.Item
-            time={item.time}
-            temperature={item.temperature}
-            humidity={item.humidity}
-            key={item.id}
+            key={hour.time}
+            time={hour.time}
+            icon={getWeatherIcon(hour.condition.icon)}
+            iconLabel={hour.condition.text}
+            temperature={hour.temperature}
+            humidity={hour.humidity}
           />
         ))}
       </Carousel>
     </Card>
   );
 }
+
+HourlyWeather.propTypes = {
+  hours: PropTypes.arrayOf(
+    PropTypes.shape({
+      time: PropTypes.string.isRequired,
+      condition: PropTypes.shape({
+        text: PropTypes.string.isRequired,
+        icon: PropTypes.string.isRequired,
+      }).isRequired,
+      temperature: PropTypes.number.isRequired,
+      humidity: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+};

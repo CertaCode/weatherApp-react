@@ -1,8 +1,9 @@
 import { api } from "./api";
 
-export default async function getCurrentWeather(city) {
-  const { data } = await api.get("/weather/current", {
-    params: { city: city },
+export default async function getForecast(city, signal) {
+  const { data } = await api.get("/weather/forecast", {
+    params: { city },
+    signal,
   });
   return data;
 }

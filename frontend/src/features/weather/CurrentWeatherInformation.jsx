@@ -21,7 +21,7 @@ export default function CurrentWeatherInformation({
             <p>Air Quality</p>
             <p
               className={airQuality ? `aq--${airQuality.severity}` : undefined}>
-              {airQuality.label ?? "N/A"}
+              {airQuality?.label ?? "N/A"}
             </p>
           </li>
         </ul>
