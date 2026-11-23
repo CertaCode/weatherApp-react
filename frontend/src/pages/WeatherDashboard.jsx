@@ -15,7 +15,7 @@ export default function WeatherDashboard() {
 
   return (
     <main>
-      <TodaysWeather />
+      <TodaysWeather today={data.today} />
       <CurrentWeather
         current={data.current}
         localTime={data.location.localTime}

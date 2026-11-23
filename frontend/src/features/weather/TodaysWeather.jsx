@@ -1,17 +1,42 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 import Card from "../../components/ui/Card";
 import "./TodaysWeather.css";
 
-export default function TodaysWeather() {
-  const [hiTemp, setHiTemp] = useState("21");
-  const [loTemp, setLoTemp] = useState("14");
+export default function TodaysWeather({ today }) {
+  const { tonight } = today;
 
   return (
-    <Card title="TODAY'S WEATHER" date="WED,SEP 30" className="todays-weather">
+    <Card
+      title="TODAY'S WEATHER"
+      date={today.dateLabel}
+      className="todays-weather">
       <>
-        <p>Sunny to partly cloudy HI: {hiTemp}</p>
-        <p>Tonight: Mainly clear Lo: {loTemp}</p>
+        <p>
+          {today.condition.text} HI: {today.hi}°
+        </p>
+        {tonight && (
+          <p>
+            Tonight: {tonight.condition.text} Lo: {tonight.lo}°
+          </p>
+        )}
       </>
     </Card>
   );
 }
+
+const conditionShape = PropTypes.shape({
+  text: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+});
+
+TodaysWeather.propTypes = {
+  today: PropTypes.shape({
+    dateLabel: PropTypes.string.isRequired,
+    condition: conditionShape.isRequired,
+    hi: PropTypes.number.isRequired,
+    tonight: PropTypes.shape({
+      condition: conditionShape.isRequired,
+      lo: PropTypes.number.isRequired,
+    }),
+  }).isRequired,
+};
