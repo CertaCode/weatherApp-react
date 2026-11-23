@@ -21,7 +21,7 @@ export default function WeatherDashboard() {
         localTime={data.location.localTime}
       />
       <HourlyWeather hours={data.hours} />
-      <Forecast />
+      <Forecast days={data.days} />
     </main>
   );
 }
