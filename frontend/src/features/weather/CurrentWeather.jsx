@@ -30,7 +30,7 @@ export default function CurrentWeather() {
         />
         <CurrentWeatherInformation
           wind={data.wind}
-          windgust={data.windGust}
+          windGust={data.windGust}
           airQuality={data.airQuality}
         />
       </Fragment>
